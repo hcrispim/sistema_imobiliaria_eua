@@ -9,4 +9,8 @@ class UserController extends Controller
     public function UserDashboard(){
         return view('user.user_dashboard');
     } // End Method
+
+    public function Index(){
+        return view('frontend.index');
+    } // End Method
 }

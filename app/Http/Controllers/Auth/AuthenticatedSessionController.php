@@ -25,10 +25,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+       // dd("tentou logar e passou no LoginRequest ");
+
         $request->authenticate();
 
         $request->session()->regenerate();
 
+        dd("tentou logar e passou no LoginRequest ");
         $url = '';
         if($request->user()->role === 'admin'){
             $url = 'admin/dashboard';
