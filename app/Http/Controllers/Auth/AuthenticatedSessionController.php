@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        dd("tentou logar e passou no LoginRequest ");
+        //dd("tentou logar e passou no LoginRequest ");
         $url = '';
         if($request->user()->role === 'admin'){
             $url = 'admin/dashboard';

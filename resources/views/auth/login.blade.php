@@ -51,7 +51,7 @@
 
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="email" name="login" id="login" required="">
+                                            <input type="email" name="email" id="email" required="">
                                         </div>
 
                                         <div class="form-group">
