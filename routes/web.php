@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -27,9 +28,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::post('/user/profile/store', [UserController::class, 'UserProfileStore'])->name('user.profile.store');
+    Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
+    Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
+    Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
 });
 
 require __DIR__.'/auth.php';
@@ -55,5 +58,15 @@ Route::middleware(['auth','role:user'])->group(function () {
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+Route::controller(PropertyTypeController::class)->group(function(){
+    Route::get('/all/type', 'AllType')->name('all.type');
+    Route::get('/add/type', 'AddType')->name('add.type');
+    Route::post('/store/type', 'StoreType')->name('store.type');
+    Route::get('/edit/type/{id}', 'EditType')->name('edit.type');
+    Route::post('/update/type', 'UpdateType')->name('update.type');
+    Route::get('/delete/type/{id}', 'DeleteType')->name('delete.type');
+});
+
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -25,23 +26,28 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-       // dd("tentou logar e passou no LoginRequest ");
-
         $request->authenticate();
+        $id = Auth::user()->id;
+        $adminData = User::find($id);
+        $username = $adminData->name;
 
         $request->session()->regenerate();
 
-        //dd("tentou logar e passou no LoginRequest ");
+        $notification = array(
+            'message' => 'User '.$username.' Login Successfully',
+            'alert-type' => 'info'
+        );
+
         $url = '';
         if($request->user()->role === 'admin'){
             $url = 'admin/dashboard';
         } elseif($request->user()->role === 'agent'){
             $url = 'agent/dashboard';
         } elseif($request->user()->role === 'user'){
-            $url = 'user/dashboard';
+            $url = '/dashboard';
         }
 
-        return redirect()->intended($url);
+        return redirect()->intended($url)->with($notification);;
     }
 
     /**
