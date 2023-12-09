@@ -73,6 +73,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <!-- core:js -->
 <script src="{{asset('backend/assets/vendors/core/core.js')}}"></script>
+
 <!-- endinject -->
 
 <!-- Plugin js for this page -->
@@ -121,6 +122,7 @@ License: For each use you must have a valid license purchased only from above li
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="{{ asset('backend/assets/js/code/code.js') }}"></script>
+<script src="{{ asset('backend/assets/js/code/validate.min.js') }}"></script>
 
 </body>
 </html>
