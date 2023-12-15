@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\Backend\PropertyController;
 use App\Http\Controllers\Backend\PropertyTypeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -78,3 +79,24 @@ Route::controller(PropertyTypeController::class)->group(function () {
     Route::get('/delete/amenitie/{id}', 'DeleteAmenitie')->name('delete.amenitie');
 });
 
+// Property All Route
+Route::controller(PropertyController::class)->group(function(){
+
+    Route::get('/all/property', 'AllProperty')->name('all.property');
+    Route::get('/add/property', 'AddProperty')->name('add.property');
+    Route::post('/store/property', 'StoreProperty')->name('store.property');
+    Route::get('/edit/property/{id}', 'EditProperty')->name('edit.property');
+    Route::post('/update/property', 'UpdateProperty')->name('update.property');
+    Route::post('/update/property/thambnail', 'UpdatePropertyThambnail')->name('update.property.thambnail');
+    Route::post('/update/property/multiimage', 'UpdatePropertyMultiimage')->name('update.property.multiimage');
+    Route::get('/property/multiimg/delete/{id}', 'PropertyMultiImageDelete')->name('property.multiimg.delete');
+    Route::post('/store/new/multiimage', 'StoreNewMultiimage')->name('store.new.multiimage');
+    Route::post('/update/property/facilities', 'UpdatePropertyFacilities')->name('update.property.facilities');
+    Route::get('/delete/property/{id}', 'DeleteProperty')->name('delete.property');
+    Route::get('/details/property/{id}', 'DetailsProperty')->name('details.property');
+    Route::post('/inactive/property', 'InactiveProperty')->name('inactive.property');
+    Route::post('/active/property', 'ActiveProperty')->name('active.property');
+    Route::get('/admin/package/history', 'AdminPackageHistory')->name('admin.package.history');
+    Route::get('/package/invoice/{id}', 'PackageInvoice')->name('package.invoice');
+    Route::get('/admin/property/message/', 'AdminPropertyMessage')->name('admin.property.message');
+});
