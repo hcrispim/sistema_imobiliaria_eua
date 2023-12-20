@@ -29,6 +29,10 @@
                                 </thead>
                                 <tbody>
                                 @foreach($property as $key => $item)
+                                    {{--@php
+                                        dd($item);
+                                    @endphp--}}
+
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td><img src="{{ asset($item->property_thambnail) }}" style="width:70px; height:40px;"> </td>

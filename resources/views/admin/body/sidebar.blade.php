@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-            Easye<span>Learning</span>
+            Easye<span>Admin</span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>
@@ -20,7 +20,8 @@
             </li>
             <li class="nav-item nav-category">RealEstate</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false" aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
+                   aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Property Type</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -33,7 +34,6 @@
                         <li class="nav-item">
                             <a href="{{route ('add.type')}}" class="nav-link">Add Type</a>
                         </li>
-
                     </ul>
                 </div>
             </li>
@@ -58,7 +58,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false" aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
+                   aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Property  </span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -71,17 +72,23 @@
                         <li class="nav-item">
                             <a href="{{ route('add.property') }}" class="nav-link">Add Property</a>
                         </li>
+                    </ul>
+                </div>
+            </li>
 
-
-                        <li class="nav-item">
-                <a href="pages/apps/calendar.html" class="nav-link">
-                    <i class="link-icon" data-feather="calendar"></i>
-                    <span class="link-title">Calendar</span>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
+                   aria-controls="emails">
+                    <i class="link-icon" data-feather="mail"></i>
+                    <span class="link-title">Calendar  </span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
             </li>
+
             <li class="nav-item nav-category">Components</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false" aria-controls="uiComponents">
+                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button"
+                   aria-expanded="false" aria-controls="uiComponents">
                     <i class="link-icon" data-feather="feather"></i>
                     <span class="link-title">UI Kit</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -99,7 +106,8 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false" aria-controls="advancedUI">
+                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button"
+                   aria-expanded="false" aria-controls="advancedUI">
                     <i class="link-icon" data-feather="anchor"></i>
                     <span class="link-title">Advanced UI</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -116,8 +124,6 @@
                     </ul>
                 </div>
             </li>
-
-
 
 
             <li class="nav-item nav-category">Docs</li>

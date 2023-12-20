@@ -10,10 +10,11 @@ use App\Models\Property;
 use App\Models\PropertyType;
 use App\Models\User;
 use Illuminate\Http\Request;
+
 use App\Models\State;
-
 use Haruncpi\LaravelIdGenerator\IdGenerator;
-
+use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
 
 
 class PropertyController extends Controller
@@ -91,17 +92,13 @@ class PropertyController extends Controller
 
         $images = $request->file('multi_img');
         foreach ($images as $img) {
-
             $make_name = hexdec(uniqid()) . '.' . $img->getClientOriginalExtension();
             Image::make($img)->resize(770, 520)->save('upload/property/multi-image/' . $make_name);
             $uploadPath = 'upload/property/multi-image/' . $make_name;
-
             MultiImage::insert([
-
                 'property_id' => $property_id,
                 'photo_name' => $uploadPath,
                 'created_at' => Carbon::now(),
-
             ]);
         } // End Foreach
 
@@ -110,7 +107,6 @@ class PropertyController extends Controller
         /// Facilities Add From Here ////
 
         $facilities = Count($request->facility_name);
-
         if ($facilities != NULL) {
             for ($i = 0; $i < $facilities; $i++) {
                 $fcount = new Facility();
@@ -120,9 +116,7 @@ class PropertyController extends Controller
                 $fcount->save();
             }
         }
-
         /// End Facilities  ////
-
 
         $notification = array(
             'message' => 'Property Inserted Successfully',
@@ -136,10 +130,9 @@ class PropertyController extends Controller
 
     public function EditProperty($id)
     {
-
         $facilities = Facility::where('property_id', $id)->get();
         $property = Property::findOrFail($id);
-
+        //amenities_id = 2,3,1
         $type = $property->amenities_id;
         $property_ami = explode(',', $type);
 
@@ -164,7 +157,6 @@ class PropertyController extends Controller
         $property_id = $request->id;
 
         Property::findOrFail($property_id)->update([
-
             'ptype_id' => $request->ptype_id,
             'amenities_id' => $amenites,
             'property_name' => $request->property_name,
